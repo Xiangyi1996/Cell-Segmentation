@@ -60,7 +60,7 @@ python test/eval_mito.py --gpu 0 --exp FS_mito --num-workers 8 --batch-size 1 --
 PS: You can change the ```EXP``` in script to your pretrained model name. The above is just an example.
 
 ### Results
-|   Before 3D fusion | Membrane |  Nucleus  | Mito |    After 3D fusion | Membrane |  Nucleus  | Mito |
+|   Before \\ 3D fusion | Membrane |  Nucleus  | Mito |    After \\ 3D fusion | Membrane |  Nucleus  | Mito |
 |-----------------------|:--------------------------------------------------:|:--------------------------------------------------:|:--------------------------------------------------:|:-----------------:|-----------------:|-----------------:|-----------------:|
 | 766_8 | 90.74| 93.21| 68.58| |93.54           |  93.92  |70.34 | 
 | 784_5 | 87.43| 89.95| 63.17|| 89.41            |  91.82  | 67.29|
