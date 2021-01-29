@@ -32,11 +32,11 @@ train_idx = ['766_2', '766_7', '766_10', '766_11', '769_5', '769_7', '783_6', '7
 class cellmapping_test():
     def __init__(self, type='imageall_x'):
         self.type = type
-        self.image_root_dir = osp.join('./imageall_xyz_image/', self.type)
+        self.image_root_dir = osp.join('data/image_xyz/', self.type)
         self.checkpoint_dir = 'results/{}/checkpoints/best.pth'.format(args.exp)
         self.device = torch.device("cuda")
-        self.gt_path = osp.join('./imageall_xyz_mask', 'img3dtiffoutput')
-        self.coarse_label_dir = '/group/xiangyi/iHuman-SIST/labelUnlabelImage/labeledAllImage/'
+        self.gt_path = osp.join('data/mask_xyz')
+        self.coarse_label_dir = 'data/coarse_label'
 
         with open('test/test_idx.txt', 'r') as f1, open('test/val_idx.txt', 'r') as f2, open('test/train_idx.txt', 'r') as f3, open('test/unlabel_idx.txt', 'r') as f4:
             self.test_idx = f1.read().splitlines()
@@ -46,7 +46,7 @@ class cellmapping_test():
 
 
     def save_tiff(self, pred, imagefile):
-        savepath = f'./imageall_xyz_mask/{self.type}_mem_nu_predtiff'
+        savepath = f'data/mask_xyz/{self.type}_mem_nu_predtiff'
         os.makedirs(savepath, exist_ok=True)
         tifffile.imsave(f'{savepath}/{imagefile}.tiff', np.array(pred))
         print(f"save {savepath}/{imagefile}.tiff'")
@@ -153,12 +153,12 @@ class cellmapping_test():
                       "nu: DICE: {:.2%} | IOU: {:.2%}".format(imagefile, self.type, dice[0], iou[0],dice[1], iou[1]))
             print('-------------------------------')
 
-        # self.save_tiff(pred_list, imagefile)
+        self.save_tiff(pred_list, imagefile)
 
 class Post_process(cellmapping_test):
     def __init__(self):
         super(Post_process, self).__init__(type='imageall_x')
-        self.path = f'/group/xiangyi/iHuman-SIST/imageall_xyz_mask/'
+        self.path = f'data/mask_xyz/'
 
     def getIsolateLabel(self, x, label):
         x_copy = x.copy()
@@ -215,20 +215,25 @@ class Post_process(cellmapping_test):
             if self.imagefile in self.test_idx:
                 self.evaluate_again(xyzLabel, 'before')
 
-            self.cropCoarseLabel(xyzLabel, self.imagefile)
-            ############# After #############
-            if self.imagefile in self.test_idx:
-                self.evaluate_again(xyzLabel, 'after')
-            # self.save_tiff_coarse(xyzLabel, self.imagefile)
+            ## Optional: using the coarse label to refine the results. You can ignore this code if you don't want to use the extra labels.
+            ## If you want to refine, the labels are in https://drive.google.com/drive/folders/12msPtKcQ7IPG7HD9OJZf5c5ZBntEiN1q?usp=sharing
 
-    def evaluate_again(self, xyzLabel, flag):
+            # self.cropCoarseLabel(xyzLabel, self.imagefile)
+            # ############# After #############
+            # if self.imagefile in self.test_idx:
+            #     self.evaluate_again(xyzLabel, 'after')
+            self.save_tiff_coarse(xyzLabel, self.imagefile)
+
+    def evaluate_again(self, xyzLabel, flag='before'):
         gt = self.turnGtBigLabel(self.imagefile)
         dice, iou, _ = self.evaluate(xyzLabel, gt)
         if args.mode == 'mito':
-            print("{} coarse label refine \n"
+            print("
+            # {} coarse label refine \n"
                   "mito: DICE: {:.2%} | IOU: {:.2%}".format(flag, dice[0], iou[0]))
         else:
-            print("{} coarse label refine \n"
+            print("
+            # {} coarse label refine \n"
                   "mem: DICE: {:.2%} | IOU: {:.2%}\n"
                   "nu:  DICE: {:.2%} | IOU: {:.2%}".format(flag, dice[0], iou[0], dice[1], iou[1]))
         print('------------------------------- \n')
