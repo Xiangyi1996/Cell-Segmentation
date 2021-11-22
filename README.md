@@ -74,6 +74,9 @@ We list the performance w/o 3D fusion.
 | 784_5 | 89.41            |  91.82  | 67.29|
 | 842_17 | 91.85      |  89.49  |67.40|
 | mean |**91.60** |  **91.74**  |**68.34**|
+
+And the RDF of our results can be downloaded [here](https://drive.google.com/file/d/13kPjGTrzVUX43bJwBVLtZRaWDYUok9rZ/view?usp=sharing) 
+
 <!-- ## Citation
 Please consider citing our paper if the project helps your research. BibTeX reference is as follows.
 ```
