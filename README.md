@@ -3,7 +3,7 @@ Official Implementation of [Auto-Segmentation and Time-Dependent Systematic Anal
 
 
 
-## description of folders
+## Description of folders
 dataloaders: scripts for preprocessing input data, data augmentation.  
 experiments:Scripts for evaluating semantic results: cell/nucleus/mitochondria.  
 figure: main figure for this paper.  
