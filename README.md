@@ -1,12 +1,12 @@
 # Cell-Segmentation
 Official Implementation of [Auto-Segmentation and Time-Dependent Systematic Analysis of Mesoscale Cellular Structure in β-Cells During Insulin Secretion]().
 
-## cell IDs
+## Cell IDs
 Partition of training/validation/testing: 18/3/3
 
-training set: 766_10, 766_11, 766_2, 766_7, 769_5, 769_7, 783_12 783_6, 784_4, 784_6, 784_7, 785_7, 822_4, 822_6, 822_7, 842_13, 931_14, 931_9, 
-validation set: 766_5, 783_5, 842_12,
-testing set: 766_8, 784_5, 842_17,
+Training set: 766_10, 766_11, 766_2, 766_7, 769_5, 769_7, 783_12 783_6, 784_4, 784_6, 784_7, 785_7, 822_4, 822_6, 822_7, 842_13, 931_14, 931_9,   
+Validation set: 766_5, 783_5, 842_12,  
+Testing set: 766_8, 784_5, 842_17,  
 
 ## Installation
 
