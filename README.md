@@ -1,6 +1,18 @@
 # Cell-Segmentation
 Official Implementation of [Auto-Segmentation and Time-Dependent Systematic Analysis of Mesoscale Cellular Structure in β-Cells During Insulin Secretion]().
 
+
+
+## description of folders
+dataloaders: scripts for preprocessing input data, data augmentation.
+experiments:Scripts for evaluating semantic results: cell/nucleus/mitochondria.
+figure: main figure for this paper.
+networks: framework structure of unet.
+script: commands to run model on test data.
+
+
+
+
 ## Cell IDs
 Partition of training/validation/testing: 18/3/3
 
