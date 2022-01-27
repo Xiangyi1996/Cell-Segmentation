@@ -4,11 +4,11 @@ Official Implementation of [Auto-Segmentation and Time-Dependent Systematic Anal
 
 
 ## description of folders
-dataloaders: scripts for preprocessing input data, data augmentation.
-experiments:Scripts for evaluating semantic results: cell/nucleus/mitochondria.
-figure: main figure for this paper.
-networks: framework structure of unet.
-script: commands to run model on test data.
+dataloaders: scripts for preprocessing input data, data augmentation.  
+experiments:Scripts for evaluating semantic results: cell/nucleus/mitochondria.  
+figure: main figure for this paper.  
+networks: framework structure of unet.  
+script: commands to run model on test data.  
 
 
 
