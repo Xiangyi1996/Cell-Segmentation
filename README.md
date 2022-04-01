@@ -1,5 +1,5 @@
 # Cell-Segmentation
-Official Implementation of [Auto-Segmentation and Time-Dependent Systematic Analysis of Mesoscale Cellular Structure in β-Cells During Insulin Secretion]().
+Official Implementation of [Auto-Segmentation and Time-Dependent Systematic Analysis of Mesoscale Cellular Structure in β-Cells During Insulin Secretion](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0265567).
 
 
 
